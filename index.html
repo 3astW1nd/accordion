@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | FAQ accordion</title>
+
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div class="container">   
+
+    <div class="bg-image">
+      <!-- <picture>
+        <source media="(min-width: 767px);" srcset="./assets/images/background-pattern-mobile.svg">
+        <source media="(min-width: 768px);" srcset="./assets/images/background-pattern-desktop.svg">
+        <img src="./assets/images/background-pattern-desktop.svg" alt="purple bg with pink lines"/>
+      </picture> -->
+      <img src="./assets/images/background-pattern-desktop.svg" alt="purple bg with pink lines" class="d-bg"/>
+      <img src="./assets/images/background-pattern-mobile.svg" alt="purple bg with pink lines small" class="m-bg"/>
+    </div>
+
+
+    <div class="content">
+      <div class="card">
+        
+        <div class="header">
+          <img src="./assets/images/icon-star.svg" alt="star icon">
+          <h1>
+            FAQs
+          </h1>
+        </div>
+      
+
+        <div class="question1" onclick="handleClick(this)">
+          <div class="q1">
+            What is Frontend Mentor, and how will it help me?
+
+            <img src="./assets/images/icon-plus.svg" alt="plus sign" />
+          </div>
+
+          <div class="answer" id="a1">
+
+          </div>
+        
+        </div>
+      
+        <div class="question2" onclick="handleClick(this)">
+          <div class="q2">
+            Is Frontend Mentor free?
+
+            <img src="./assets/images/icon-plus.svg" alt="plus sign"/>
+          </div>
+        
+          <div class="answer" id="a2">
+            
+          </div>
+        </div>
+      
+        <div class="question3" onclick="handleClick(this)">
+          <div class="q3">
+            Can I use Frontend Mentor projects in my portfolio?
+
+            <img src="./assets/images/icon-plus.svg" alt="plus sign"/>
+          </div>
+        
+          <div class="answer" id="a3">
+            
+          </div>
+        </div>
+
+
+        <div class="question4" onclick="handleClick(this)">
+          <div class="q4">
+            How can I get help if I'm stuck on a Frontend Mentor challenge?
+
+            <img src="./assets/images/icon-plus.svg" alt="plus sign"/>
+          </div>
+
+          <div class="answer" id="a4">
+            
+          </div>
+        </div>
+      
+        
+      </div>
+    </div>
+
+  </div>
+
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/3astW1nd">Dilawar</a>.
+    </div>
+  </footer>
+  <script>
+    var isOpen = false;
+
+    function handleClick(obj) {
+
+      const r1 = document.getElementById('a1');
+      const r2 = document.getElementById('a2');
+      const r3 = document.getElementById('a3');
+      const r4 = document.getElementById('a4');
+
+      var c1 = document.querySelector('.question1 .answer p');
+      var c2 = document.querySelector('.question2 .answer p');
+      var c3 = document.querySelector('.question3 .answer p');
+      var c4 = document.querySelector('.question4 .answer p');
+
+      switch (obj.className) {
+        case 'question1':
+          var a1 = "Frontend Mentor offers realistic coding challenges to help developers improve their"
+                    +  "frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for"
+                    +  "all levels and ideal for portfolio building.";
+          var checker = document.querySelector('.question1 .answer p');
+          if (!checker) {
+            const p1 = document.createElement('p');
+            p1.innerText = a1;
+            p1.setAttribute('style', 'margin-bottom: 0;')
+                      
+            const res = document.getElementById('a1');
+            res.appendChild(p1);
+
+            if (c2 != null) {
+              r2.removeChild(c2);
+              var newImg = './assets/images/icon-plus.svg';
+              const img2 = document.querySelector('.question2 .q2 img');
+              img2.setAttribute('src', newImg); 
+            }
+
+            if (c3 != null) {
+              r3.removeChild(c3);
+              var newImg = './assets/images/icon-plus.svg';
+              const img3 = document.querySelector('.question3 .q3 img');
+              img3.setAttribute('src', newImg); 
+            }
+
+            if (c4 != null) {
+              r4.removeChild(c4);
+              var newImg = './assets/images/icon-plus.svg';
+              const img4 = document.querySelector('.question4 .q4 img');
+              img4.setAttribute('src', newImg); 
+            }
+            
+                  
+            var newImg = './assets/images/icon-minus.svg';
+            const img = document.querySelector('.question1 .q1 img');
+            img.setAttribute('src', newImg);
+          } else {
+
+            const res = document.getElementById('a1');
+            res.removeChild(checker);
+
+            var newImg = './assets/images/icon-plus.svg';
+            const img = document.querySelector('.question1 .q1 img');
+            img.setAttribute('src', newImg);
+          }
+          break;
+
+        case 'question2':
+          var a2 = "Yes, Frontend Mentor offers both free and premium coding challenges, with the free" 
+                  + "option providing access to a range of projects suitable for all skill levels.";
+          var checker = document.querySelector('.question2 .answer p');
+          if (!checker) {
+            const p1 = document.createElement('p');
+            p1.innerText = a2;
+            p1.setAttribute('style', 'margin-bottom: 0;')
+                      
+            const res = document.getElementById('a2');
+            res.appendChild(p1);
+
+            if (c1 != null) {
+              r1.removeChild(c1);
+              var newImg = './assets/images/icon-plus.svg';
+              const img1 = document.querySelector('.question1 .q1 img');
+              img1.setAttribute('src', newImg); 
+            }
+
+            if (c3 != null) {
+              r3.removeChild(c3);
+              var newImg = './assets/images/icon-plus.svg';
+              const img3 = document.querySelector('.question3 .q3 img');
+              img3.setAttribute('src', newImg); 
+            }
+
+            if (c4 != null) {
+              r4.removeChild(c4);
+              var newImg = './assets/images/icon-plus.svg';
+              const img4 = document.querySelector('.question4 .q4 img');
+              img4.setAttribute('src', newImg); 
+            }
+                  
+            var newImg = './assets/images/icon-minus.svg';
+            const img = document.querySelector('.question2 .q2 img');
+            img.setAttribute('src', newImg);
+          } else {
+
+            const res = document.getElementById('a2');
+            res.removeChild(checker);
+
+            var newImg = './assets/images/icon-plus.svg';
+            const img = document.querySelector('.question2 .q2 img');
+            img.setAttribute('src', newImg);            
+          }
+          break;
+
+        case 'question3': 
+          var a3 = "Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent"
+                  + "way to showcase your skills to potential employers!";
+          var checker = document.querySelector('.question3 .answer p');
+          if (!checker) {
+            const p1 = document.createElement('p');
+            p1.innerText = a3;
+            p1.setAttribute('style', 'margin-bottom: 0;')
+                      
+            const res = document.getElementById('a3');
+            res.appendChild(p1);
+
+            if (c1 != null) {
+              r1.removeChild(c1);
+              var newImg = './assets/images/icon-plus.svg';
+              const img1 = document.querySelector('.question1 .q1 img');
+              img1.setAttribute('src', newImg);
+            }
+
+            if (c2 != null) {
+              r2.removeChild(c2);
+              var newImg = './assets/images/icon-plus.svg';
+              const img2 = document.querySelector('.question2 .q2 img');
+              img2.setAttribute('src', newImg);
+            }
+
+            if (c4 != null) {
+              r4.removeChild(c4);
+              var newImg = './assets/images/icon-plus.svg';
+              const img4 = document.querySelector('.question4 .q4 img');
+              img4.setAttribute('src', newImg); 
+            }
+                  
+            var newImg = './assets/images/icon-minus.svg';
+            const img = document.querySelector('.question3 .q3 img');
+            img.setAttribute('src', newImg);
+          } else {
+
+            const res = document.getElementById('a3');
+            res.removeChild(checker);
+
+            var newImg = './assets/images/icon-plus.svg';
+            const img = document.querySelector('.question3 .q3 img');
+            img.setAttribute('src', newImg);
+          }
+          break;
+
+        case 'question4':
+          var a4 = "The best place to get help is inside Frontend Mentor's Discord community. There's a help" 
+                  + "channel where you can ask questions and seek support from other community members."
+          var checker = document.querySelector('.question4 .answer p');
+          if (!checker) {
+            const p1 = document.createElement('p');
+            p1.innerText = a4;
+            p1.setAttribute('style', 'margin-bottom: 0;')
+                      
+            const res = document.getElementById('a4');
+            res.appendChild(p1);
+
+            if (c1 != null) {
+              r1.removeChild(c1);
+              var newImg = './assets/images/icon-plus.svg';
+              const img1 = document.querySelector('.question1 .q1 img');
+              img1.setAttribute('src', newImg);
+            }
+
+            if (c2 != null) {
+              r2.removeChild(c2);
+              var newImg = './assets/images/icon-plus.svg';
+              const img2 = document.querySelector('.question2 .q2 img');
+              img2.setAttribute('src', newImg);
+            }
+
+            if (c3 != null) {
+              r3.removeChild(c3);
+              var newImg = './assets/images/icon-plus.svg';
+              const img3 = document.querySelector('.question3 .q3 img');
+              img3.setAttribute('src', newImg); 
+            }
+                  
+            var newImg = './assets/images/icon-minus.svg';
+            const img = document.querySelector('.question4 .q4 img');
+            img.setAttribute('src', newImg);
+          } else {
+
+            const res = document.getElementById('a4');
+            res.removeChild(checker);
+
+            var newImg = './assets/images/icon-plus.svg';
+            const img = document.querySelector('.question4 .q4 img');
+            img.setAttribute('src', newImg);
+          }
+          break;
+      }
+
+
+      
+    }
+  
+    const t = document.querySelector('body');
+    t.addEventListener('click', handleClick);
+  
+  </script>
+</body>
+
+</html>
